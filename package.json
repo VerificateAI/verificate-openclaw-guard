@@ -1,0 +1,14 @@
+{
+  "name": "@verificate/openclaw-guard",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "The trust layer for OpenClaw: gate every answer and every code-writing tool call through Verificate before you trust it.",
+  "license": "MIT",
+  "openclaw": {
+    "extensions": ["./index.ts"],
+    "compat": {
+      "pluginApi": ">=2026.3.24-beta.2",
+      "minGatewayVersion": "2026.3.24-beta.2"
+    }
+  }
+}
