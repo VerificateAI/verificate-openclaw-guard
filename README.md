@@ -47,3 +47,20 @@ Calls the hosted [Verificate MCP server](https://mcp.verificate.ai/mcp) directly
 - The reality gates are **deterministic** — they can't be sweet-talked by a prompt-injected answer, which is exactly the failure mode plaguing untrusted skills.
 
 Privacy: https://verificate.ai/privacy · All Verificate clients: https://github.com/Verificate-Dev/verificate-mcp-quickstart
+
+## Install into OpenClaw
+
+Clone into your OpenClaw plugins directory and enable it in config:
+
+```bash
+git clone https://github.com/Verificate-Dev/verificate-openclaw-guard \
+  ~/.openclaw/plugins/verificate-guard
+```
+
+Then add the config block above (with `hooks.allowConversationAccess: true`) and restart the Gateway. Verify it loaded:
+
+```bash
+openclaw plugins list      # verificate-guard should appear
+```
+
+Ask OpenClaw to write a function with a mocked/placeholder body — the guard rejects it and asks the agent to fix before you see the answer.
