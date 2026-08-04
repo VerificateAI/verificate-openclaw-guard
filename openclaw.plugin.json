@@ -1,7 +1,7 @@
 {
   "id": "verificate-guard",
   "name": "Verificate Guard",
-  "description": "The trust layer for OpenClaw. Gates the final answer (and, opt-in, code-writing tool calls) through Verificate's reality gates + frontier review before you trust it. Fail-open, free to try.",
+  "description": "The trust layer for OpenClaw. Gates the final answer (and, opt-in, code-writing tool calls) through Verificate's reality gates + frontier review before you trust it. Fail-open, free to try. | OpenClaw 的信任层：在信任之前，先通过 Verificate 的现实闸门 + 前沿模型评审对最终答复（以及可选的写代码工具调用）进行验证。失败即放行，免费试用。",
   "activation": {
     "onStartup": true
   },
