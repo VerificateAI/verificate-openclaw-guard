@@ -1,0 +1,20 @@
+{
+  "id": "verificate-guard",
+  "name": "Verificate Guard",
+  "description": "The trust layer for OpenClaw. Gates the final answer (and, opt-in, code-writing tool calls) through Verificate's reality gates + frontier review before you trust it. Fail-open, free to try.",
+  "activation": {
+    "onStartup": true
+  },
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "token": { "type": "string", "description": "Optional Verificate API token. Omit for the free tier (25 validations/machine)." },
+      "gateCode": { "type": "boolean", "default": true, "description": "Gate final answers that contain code." },
+      "gateProse": { "type": "boolean", "default": false, "description": "Also gate prose answers as documents." },
+      "guardToolWrites": { "type": "boolean", "default": false, "description": "Validate code inside write/patch tool calls and require approval on a reject." },
+      "maxRevisions": { "type": "integer", "default": 2, "minimum": 0, "maximum": 5, "description": "Extra model passes to request when an answer is rejected." },
+      "timeoutMs": { "type": "integer", "default": 20000, "description": "Per-validation network budget; on timeout the guard fails open." }
+    }
+  }
+}
