@@ -9,6 +9,10 @@ Two hooks:
 
 Calls the hosted [Verificate MCP server](https://mcp.verificate.ai/mcp) directly — no separate `openclaw mcp add` needed. **Free tier: 25 validations per machine, no signup.**
 
+## Measured — why the guard is worth the hook
+
+A frontier model reviewing an answer's code in a natural workflow missed reward-gaming (`assert True`) and a hallucinated API in **0 of 6 runs each**. Verificate's gates catch both **6 / 6 — deterministically**. In production it has run 2,581 audited validations and guards the write-path of a 21M-entity source-cited knowledge base (98.6% cited, 100% licensed). Benchmark: https://github.com/Verificate-Dev/verificate-mcp-quickstart/blob/master/COMPARISON.md
+
 ## Install & enable
 
 `before_agent_finalize` reads conversation content, so OpenClaw requires an explicit operator opt-in. In your config:
