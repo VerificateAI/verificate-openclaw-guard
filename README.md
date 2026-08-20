@@ -1,5 +1,8 @@
 # Verificate Guard — the trust layer for OpenClaw
 
+[![Verificate Gate](https://img.shields.io/badge/gated%20by-Verificate%20Gate-2ea44f?logo=shield&logoColor=white)](https://github.com/VerificateAI/verificate-gate-action)
+
+
 ClawHub skills are powerful but untrusted — security audits keep finding prompt injection, malware and credential theft in community skills, and every AI answer sounds confident whether it's right or wrong. **Verificate Guard makes quality structural**: it hooks OpenClaw so every answer is verified before you see it, not something the agent may skip.
 
 Two hooks:
