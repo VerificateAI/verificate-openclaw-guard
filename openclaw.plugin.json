@@ -9,7 +9,7 @@
     "type": "object",
     "additionalProperties": false,
     "properties": {
-      "token": { "type": "string", "description": "Optional Verificate API token. Omit for the free tier (25 validations/machine)." },
+      "token": { "type": "string", "description": "Optional Verificate API token. Omit for the free tier (100 validations/machine)." },
       "gateCode": { "type": "boolean", "default": true, "description": "Gate final answers that contain code." },
       "gateProse": { "type": "boolean", "default": false, "description": "Also gate prose answers as documents." },
       "guardToolWrites": { "type": "boolean", "default": false, "description": "Validate code inside write/patch tool calls and require approval on a reject." },

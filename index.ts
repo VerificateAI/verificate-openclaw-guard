@@ -8,7 +8,7 @@
  *                           before they touch disk; require approval on a reject.
  *
  * Calls the hosted Verificate MCP server directly (no separate `openclaw mcp add`
- * needed). Free tier: 25 validations/machine, no token. Set config.token to continue.
+ * needed). Free tier: 100 validations/machine, no token. Set config.token to continue.
  *
  * Fail-OPEN by design: if Verificate is unreachable or errors, the answer is never
  * blocked — a guard that breaks the agent on a network hiccup is worse than no guard.
