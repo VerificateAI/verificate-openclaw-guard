@@ -10,11 +10,11 @@ Two hooks:
 - **`before_agent_finalize`** — before OpenClaw presents a final answer, if it contains code, Verificate runs it through 17 deterministic reality gates (mock/placeholder veto, invented-API checks, false-completion detection) + a frontier-model review. On a **reject**, the guard asks the harness for one more pass with the findings — the agent self-corrects before you ever see the bad answer.
 - **`before_tool_call`** *(opt-in)* — validates code inside write/patch tool calls (`apply_patch`, `write_file`, …) *before they touch disk*, and requires your approval if the reality gates reject it.
 
-Calls the hosted [Verificate MCP server](https://mcp.verificate.ai/mcp) directly — no separate `openclaw mcp add` needed. **Free tier: 25 validations per machine, no signup.**
+Calls the hosted [Verificate MCP server](https://mcp.verificate.ai/mcp) directly — no separate `openclaw mcp add` needed. **Free tier: 100 validations per machine, no signup.**
 
 ## Measured — why the guard is worth the hook
 
-A frontier model reviewing an answer's code in a natural workflow missed reward-gaming (`assert True`) and a hallucinated API in **0 of 6 runs each**. Verificate's gates catch both **6 / 6 — deterministically**. In production it has run 2,581 audited validations and guards the write-path of a 21M-entity source-cited knowledge base (98.6% cited, 100% licensed). Benchmark: https://github.com/Verificate-Dev/verificate-mcp-quickstart/blob/master/COMPARISON.md
+A frontier model reviewing an answer's code in a natural workflow missed reward-gaming (`assert True`) and a hallucinated API in **0 of 6 runs each**. Verificate's gates catch both **6 / 6 — deterministically**. In production it has run 2,581 audited validations and guards the write-path of a 21M-entity source-cited knowledge base (98.6% cited, 100% licensed). Benchmark: https://github.com/VerificateAI/verificate-mcp-quickstart/blob/master/COMPARISON.md
 
 ## Install & enable
 
@@ -40,7 +40,7 @@ A frontier model reviewing an answer's code in a natural workflow missed reward-
 
 | key | default | what |
 |---|---|---|
-| `token` | – | Optional Verificate token. Omit for the free tier; add one to continue past 25 ([trial](https://verificate.ai/auth/signup)). |
+| `token` | – | Optional Verificate token. Omit for the free tier; add one to continue past 100 ([trial](https://verificate.ai/auth/signup)). |
 | `gateCode` | `true` | Gate final answers containing code. |
 | `gateProse` | `false` | Also gate prose answers (validated as documents). |
 | `guardToolWrites` | `false` | Validate code in write/patch tool calls; require approval on reject. |
@@ -53,14 +53,14 @@ A frontier model reviewing an answer's code in a natural workflow missed reward-
 - **One egress only** — `https://mcp.verificate.ai/mcp`. Nothing else. Read-only: your code is analyzed, never executed, never trained on. Open source, MIT.
 - The reality gates are **deterministic** — they can't be sweet-talked by a prompt-injected answer, which is exactly the failure mode plaguing untrusted skills.
 
-Privacy: https://verificate.ai/privacy · All Verificate clients: https://github.com/Verificate-Dev/verificate-mcp-quickstart
+Privacy: https://verificate.ai/privacy · All Verificate clients: https://github.com/VerificateAI/verificate-mcp-quickstart
 
 ## Install into OpenClaw
 
 Clone into your OpenClaw plugins directory and enable it in config:
 
 ```bash
-git clone https://github.com/Verificate-Dev/verificate-openclaw-guard \
+git clone https://github.com/VerificateAI/verificate-openclaw-guard \
   ~/.openclaw/plugins/verificate-guard
 ```
 
@@ -105,7 +105,7 @@ ClawHub 技能功能强大，但并不可信——安全审计反复在社区技
 克隆到 OpenClaw 插件目录：
 
 ```bash
-git clone https://github.com/Verificate-Dev/verificate-openclaw-guard \
+git clone https://github.com/VerificateAI/verificate-openclaw-guard \
   ~/.openclaw/plugins/verificate-guard
 ```
 
